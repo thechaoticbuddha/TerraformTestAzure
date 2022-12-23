@@ -13,3 +13,9 @@ az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOU
 echo "storage_account_name: $STORAGE_ACCOUNT_NAME"
 echo "container_name: $CONTAINER_NAME"
 echo "access_key: $ACCOUNT_KEY"
+
+
+
+az keyvault create --name "tfkeyvault" --resource-group "tfdemostaterg" --location "eastus"
+az keyvault secret set --name "tfstateaccess" --vault-name "tfkeyvault" --value {$ACCOUNT_KEY}
+az keyvault secret show --vault-name "tfkeyvault" --name "tfstateaccess"
