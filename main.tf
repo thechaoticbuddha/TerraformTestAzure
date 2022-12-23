@@ -29,7 +29,8 @@ data "azurerm_client_config" "current" {}
 
 #########remotebackend####
 
-terraform {
+
+ terraform {
   backend "azurerm" {
     resource_group_name  = "tfdemostaterg"
     storage_account_name = "tfdemostatesa"
